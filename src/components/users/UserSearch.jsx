@@ -11,16 +11,18 @@ function UserSearch() {
 
   const handleChange = (e) => setText(e.target.value)
 
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    if (text === "") {
-      setAlert("Please enter something!", "error")
+    if (text === '') {
+      setAlert('Please enter something', 'error')
     } else {
-      dispatch({type: "SET_LOADING"})
+      dispatch({ type: 'SET_LOADING' })
       const users = await searchUsers(text)
-      dispatch({type: "GET_USERS", payload: users})
-      setText("")
+      dispatch({ type: 'GET_USERS', payload: users })
+
+      setText('')
     }
   }
 
